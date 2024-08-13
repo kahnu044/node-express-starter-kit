@@ -1,6 +1,7 @@
 // Server.js
 const express = require('express');
 const config = require('./config/config');
+const routes = require('./routes');
 
 const app = express();
 
@@ -9,21 +10,15 @@ app.use(express.json());
 
 
 // Routes
-app.use('/', (req, res) => {
-    return res.status(200).json({
-        status: true,
-        message: "Welcome to the Backend server"
-    })
-});
+// app.use('/', (req, res) => {
+//     return res.status(200).json({
+//         status: true,
+//         message: "Welcome to the Backend server"
+//     })
+// });
 
-
-app.use('/api', (req, res) => {
-    return res.status(200).json({
-        status: true,
-        message: "Welcome to the Backend API server"
-    })
-});
-
+// Routes
+app.use('/api', routes);
 
 // Start the server
 app.listen(config.port, () => {
