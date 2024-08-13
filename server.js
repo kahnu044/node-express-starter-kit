@@ -1,5 +1,6 @@
 // Server.js
 const express = require('express');
+const morgan = require('morgan');
 const config = require('./config/config');
 const routes = require('./routes');
 
@@ -7,6 +8,7 @@ const app = express();
 
 // Middlewares
 app.use(express.json());
+app.use(morgan('dev'));
 
 // Routes
 app.get('/', (req, res) => {
