@@ -4,6 +4,7 @@ const morgan = require('morgan');
 const cors = require('cors');
 const config = require('./config/config');
 const routes = require('./routes');
+const db = require('./config/db');
 
 const app = express();
 
@@ -11,6 +12,9 @@ const app = express();
 app.use(express.json());
 app.use(morgan('dev'));
 app.use(cors());
+
+// Connect to Database
+db.connectDB();
 
 // Routes
 app.get('/', (req, res) => {
@@ -22,6 +26,6 @@ app.get('/', (req, res) => {
 app.use('/api', routes);
 
 // Start the server
-app.listen(config.port, () => {
-    console.log(`Server running in ${config.env} mode on port ${config.port}`);
+app.listen(config.PORT, () => {
+    console.log(`Server running in ${config.NODE_ENV} mode on port ${config.PORT}`);
 });
