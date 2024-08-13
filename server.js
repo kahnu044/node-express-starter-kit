@@ -8,16 +8,13 @@ const app = express();
 // Middlewares
 app.use(express.json());
 
-
 // Routes
-// app.use('/', (req, res) => {
-//     return res.status(200).json({
-//         status: true,
-//         message: "Welcome to the Backend server"
-//     })
-// });
-
-// Routes
+app.get('/', (req, res) => {
+    return res.status(200).json({
+        status: true,
+        message: "Welcome to the Backend server"
+    })
+});
 app.use('/api', routes);
 
 // Start the server
