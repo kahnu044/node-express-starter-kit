@@ -1,6 +1,7 @@
 // Server.js
 const express = require('express');
 const morgan = require('morgan');
+const cors = require('cors');
 const config = require('./config/config');
 const routes = require('./routes');
 
@@ -9,6 +10,7 @@ const app = express();
 // Middlewares
 app.use(express.json());
 app.use(morgan('dev'));
+app.use(cors());
 
 // Routes
 app.get('/', (req, res) => {
