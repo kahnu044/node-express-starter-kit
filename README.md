@@ -13,5 +13,7 @@ A boilerplate for Node.js and Express projects with a structured folder layout a
 ## Getting Started
 
 1. Clone the repository.
+2. Copy the `.env.example` to `.env` and adjust values according to your needs
+3. Run command - `nvm use` to run the sever with node20
 2. Install dependencies: `npm install`
 3. Run the server: `npm run start`
